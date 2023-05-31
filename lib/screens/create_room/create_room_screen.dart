@@ -1,6 +1,7 @@
 import 'package:chat_app/base.dart';
 import 'package:chat_app/screens/create_room/create_room_navigator.dart';
 import 'package:chat_app/screens/create_room/create_room_view_model.dart';
+import 'package:chat_app/screens/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -202,6 +203,6 @@ class _CreateRoomScreenState
   @override
   void roomCreated() {
     // TODO: implement roomCreated
-    Navigator.pop(context, "create room");
+    Navigator.pop(context, "refresh");
   }
 }

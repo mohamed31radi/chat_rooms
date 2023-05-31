@@ -64,7 +64,8 @@ class _HomeScreenState extends BaseView<HomeViewModel, HomeScreen>
                       mainAxisSpacing: 10),
                   itemCount: homeViewModel.rooms.length,
                   itemBuilder: (context, index) {
-                    return RoomWidget(homeViewModel.rooms[index]);
+                    return RoomWidget(
+                        homeViewModel.rooms[index], homeViewModel);
                   },
                 );
               },
@@ -77,7 +78,7 @@ class _HomeScreenState extends BaseView<HomeViewModel, HomeScreen>
                     MaterialPageRoute(
                       builder: (context) => CreateRoomScreen(),
                     ));
-                if (refresh == "create room") {
+                if (refresh == "refresh") {
                   viewModel.reedRooms();
                   setState(() {});
                 }
@@ -92,5 +93,10 @@ class _HomeScreenState extends BaseView<HomeViewModel, HomeScreen>
   @override
   HomeViewModel initViewModel() {
     return HomeViewModel();
+  }
+
+  @override
+  void refresh() {
+    setState(() {});
   }
 }
