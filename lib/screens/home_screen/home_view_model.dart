@@ -13,4 +13,13 @@ class HomeViewModel extends BaseViewModel<HomeNavigator> {
       navigator!.showMessage(error.toString());
     });
   }
+
+  void deleteRoom(Room room) {
+    DatabaseUtils.deleteRoomFromFireStore(room.id).then((value) {
+      rooms.remove(room);
+      navigator!.refresh();
+    }).catchError((error) {
+      navigator!.showMessage(error.toString());
+    });
+  }
 }
